@@ -88,6 +88,8 @@ function Show() {
     AWS.config.update({
       region: "us-east-1", // Replace with your AWS region
       // endpoint: "dynamodb.us-east-1.amazonaws.com",
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
+      secretAccessKey: process.env.AWS_ACCESS_KEY_ID,
     });
 
     const dbClient = new AWS.DynamoDB.DocumentClient();
