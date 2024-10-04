@@ -1,0 +1,260 @@
+.contacts {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 35px;
+
+  .form {
+    width: 50%;
+    margin: 20px 0px;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        border-radius: 10px;
+        padding: 10px 35px;
+        width: 100%;
+        border: none;
+        border-bottom: solid 4px rgb(117 121 126);
+        outline: none;
+        height: 45px;
+        color: rgb(63, 63, 65);
+
+        &:focus {
+          border-bottom: solid 4px black;
+          transition: border ease-in-out 5ms;
+        }
+      }
+      textarea {
+        width: 100%;
+        border-radius: 10px;
+        padding: 10px 35px;
+        outline: none;
+        border: none;
+        border-bottom: solid 4px rgb(117 121 126);
+        color: rgb(63, 63, 65);
+
+        &:focus {
+          // border-bottom: solid 4px rgb(127 170 221);
+          border-bottom: solid 4px black;
+          transition: border ease-in-out 5ms;
+        }
+      }
+      button {
+        padding: 6px 40px;
+        background-color: rgb(201, 201, 201);
+        color: rgb(117 121 126);
+        border: solid 4px rgb(117 121 126);
+        border-radius: 10px;
+        margin-top: 50px;
+
+        &:hover {
+          background-color: rgb(117 121 126);
+          border: solid 4px rgba(212, 214, 216, 0.5);
+          color: rgb(47, 91, 235);
+          transition: border 0.5s, background-color 0.5s, color 0.5s;
+          color: white;
+        }
+      }
+      .inputs-container {
+        position: relative;
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        .name,
+        .email,
+        .message {
+          width: 100%;
+          position: relative;
+          z-index: 99;
+
+          i,
+          label {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            color: rgb(117 121 126);
+            top: 10px;
+            left: 12px;
+            transition: top 0.3s ease-in-out, font-size 0.3s ease-in-out;
+          }
+
+          label {
+            top: 9px;
+            left: 35px;
+            transition: top 0.33s ease-in-out, font-size 0.33s ease-in-out;
+          }
+
+          &:focus-within i,
+          &:focus-within label {
+            // color: rgb(127 170 221);
+            color: black;
+            top: -9px;
+            font-size: 15px;
+            transition: top 0.3s, font-size 0.3s;
+          }
+          &:focus-within i {
+            top: -6px;
+            color: black;
+          }
+        }
+
+        .email {
+          i {
+            top: 12px;
+          }
+          &.filled {
+            i,
+            label {
+              top: -9px;
+              font-size: 15px;
+              transition: top 0.3s, font-size 0.3s;
+            }
+            i {
+              top: -6px;
+            }
+          }
+        }
+
+        .name {
+          i {
+            top: 12px;
+          }
+          &:focus-within i {
+            top: -8px;
+          }
+          &.filled {
+            i,
+            label {
+              top: -9px;
+              font-size: 15px;
+              transition: top 0.3s, font-size 0.3s;
+            }
+            i {
+            top: -8px;
+            }
+          }
+        }
+
+        .message {
+          label,
+          i {
+            position: absolute;
+            display: flex;
+            align-items: start;
+            top: 9px;
+            left: 12px;
+          }
+
+          label {
+            top: 5px;
+            left: 34px;
+            transition: top 0.33s ease-in-out, font-size 0.33s ease-in-out;
+          }
+          &.filled {
+            i,
+            label {
+              top: -9px;
+              font-size: 15px;
+              transition: top 0.3s, font-size 0.3s;
+            }
+            i {
+              top: -6px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .outil-contact {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    padding: 20px;
+    background-color: rgb(150, 150, 150);
+    border-radius: 10px;
+    align-items: start;
+    justify-content: space-around;
+
+    i {
+      font-size: 22px;
+    }
+
+    .phone-label,
+    .email-label {
+      gap: 14px;
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .phone-number,
+    .email-text {
+      display: flex;
+      align-items: center;
+      background-color: black;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 17px;
+      gap: 10px;
+    }
+
+    .phone {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      .phone-number {
+        p {
+          margin: 0;
+        }
+
+        i {
+          cursor: pointer;
+          font-size: 19px;
+        }
+      }
+    }
+
+    .email {
+      .email-text {
+        p {
+          margin: 0;
+        }
+
+        i {
+          cursor: pointer;
+          font-size: 19px;
+        }
+      }
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 15px;
+      a {
+        text-decoration: none;
+        color: #212529;
+        i {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+  .custom-confirm-button {
+    background-color: #727272;
+      color: white;
+      border: none;
+      padding: 5px 25px;
+      border: solid 4px #b5b5b5;
+      border-radius: 10px;
+  }
+}

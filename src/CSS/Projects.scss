@@ -1,0 +1,50 @@
+.projects {
+  h3 {
+    font-weight: 700;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    margin-top: 0;
+  }
+
+  .grid-video {
+    a {
+      color: #0f0f0f;
+      text-decoration: none;
+    }
+
+    h5 {
+      font-weight: 700;
+      margin-top: 22px;
+      margin-bottom: 22px;
+    }
+    .videos {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      video {
+        object-fit: cover;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+      .video-info {
+        padding-top: 5px;
+        .title {
+          font-size: 20px;
+          margin: 0;
+        }
+
+        .statistic {
+          font-size: 11px;
+          font-weight: 400;
+          color: #606060;
+        }
+        .description {
+          width: 70%;
+          color: #606060;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

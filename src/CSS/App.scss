@@ -1,0 +1,233 @@
+.popup-overlay {
+  opacity: 0;
+}
+
+.popup {
+  opacity: 0;
+  position: absolute;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  transition: opacity 1s, display 1s;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.presentation {
+  background-color: rgba(0, 0, 0);
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &::before {
+    content: "";
+    bottom: 10px;
+    z-index: 900;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    // background-image: url("../../public/assets/images/pngwing.com\ \(1\).png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.Typewriter {
+  position: absolute;
+  color: yellow;
+  font-size: 35px;
+  font-family: "Inconsolata", monospace;
+  font-weight: 300;
+  text-align: justify;
+  padding-top: 100px;
+}
+
+.popup.active {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 100ms;
+
+  .card {
+    position: fixed;
+    z-index: 999;
+    padding: 15px 25px 21px 25px;
+    width: 448px;
+
+    .title {
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      .about {
+        font-weight: 700;
+        font-size: 19px;
+      }
+      .close {
+        cursor: pointer;
+        font-size: 25px;
+      }
+    }
+    h5 {
+      font-weight: 600;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+    .text {
+      margin-top: 15px;
+      font-size: large;
+      // font-family: cursive;
+      text-indent: 25px;
+      text-align: justify;
+      span {
+        color: red;
+      }
+    }
+  }
+}
+
+.app {
+  .app-bg-img {
+    margin-bottom: 13px;
+
+    video {
+      object-fit: cover;
+      border-radius: 15px;
+      width: 100%;
+      height: 165px;
+    }
+  }
+
+  .app-profile {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .app-profile-info {
+      display: flex;
+      align-items: start;
+
+      h3 {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 0;
+        margin-top: 5px;
+      }
+
+      label {
+        font-size: 14px;
+        line-height: 2rem;
+        font-weight: 400;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #606060;
+        margin-bottom: 0;
+      }
+      span {
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .check-cv {
+        a {
+          background-color: rgb(221 220 220);
+          border-radius: 20px;
+          padding: 8px 33px;
+          color: #000;
+          line-height: 3.5rem;
+          text-decoration: none;
+          font-weight: 600;
+          display: inline-flex;
+          gap: 7px;
+          height: 38px;
+          align-items: center;
+
+          &:hover {
+            background-color: #cbcbcb;
+          }
+        }
+      }
+
+      .profile-img {
+        margin-right: 22px;
+        position: relative;
+
+        &::before{
+          content: "";
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("../../public/assets/images/loading.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 120px;
+          @keyframes rotate {
+            100% {transform: rotate(360deg);}
+        }
+        animation: rotate 5s infinite;
+      }
+
+        img {
+          width: 176px;
+          border-radius: 50%;
+          height: 176px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .app-menu {
+    display: flex;
+    gap: 24px;
+    height: 48px;
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #606060;
+      font-size: 1rem;
+      line-height: 2.2rem;
+      font-weight: 500;
+      height: 48px;
+    }
+    div {
+      height: 100%;
+      a {
+        height: 100% !important;
+        &.active {
+          border-bottom: 2px solid #000;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  hr {
+    margin: 0 !important;
+  }
+  .container.show-menu {
+    padding: 22px 0px;
+  }
+}
