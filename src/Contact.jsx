@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./CSS/Contact.scss";
 import * as AWS from "aws-sdk";
 import Swal from "sweetalert2";
+import { UseMode } from "./Context";
 
 
 AWS.config.update({
@@ -30,6 +31,8 @@ function Contact() {
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [loading, setLoading] = useState(false);
+  const {mode} = UseMode();
+
 
   const dbClient = new AWS.DynamoDB.DocumentClient();
 
@@ -104,7 +107,7 @@ function Contact() {
 
   return (
     <div>
-      <div className="contacts">
+      <div className="contacts"  theme-toggle-mode={mode}>
         <div className="form">
           <form onSubmit={submitForm} action="">
             <div className="inputs-container">

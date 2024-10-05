@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./CSS/nav.scss";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { UseMode } from "./Context";
 
 function Nav() {
   const data = [
@@ -67,13 +68,16 @@ function Nav() {
   const [clickItem, setClickItem] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
   const [isFocusedOnce, setIsFocusedOnce] = useState(false);
+  const {toggleMode, mode} = UseMode();
 
-  // const id = useParams();
   const menuSearchRef = useRef();
+
 
   // useEffect(() => {
   //   setClickItem(false);
   // }, [id]);
+
+  console.log('mode', mode);
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -112,9 +116,12 @@ function Nav() {
     setClickItem(true);
   };
 
+
   return (
     <>
-      <div className="navbar">
+      <div className="navbar" 
+      theme-toggle-mode={mode}
+      >
         {openAlert ? (
           <div className="search-alert">
             <div className="flech"></div>
@@ -189,7 +196,7 @@ function Nav() {
           </div>
           <div className="mic">
             <Link
-              href="https://www.linkedin.com/in/abde-ssamad-ait-bella-92481a249/"
+              to="https://www.linkedin.com/in/abde-ssamad-ait-bella-92481a249/"
               target="_blank"
             >
               <i class="fa-brands fa-linkedin-in"></i>
@@ -197,11 +204,16 @@ function Nav() {
           </div>
         </div>
         <div className="right" style={{ width: "11%" }}>
-          <div className="cam-video">
-            <img src="/assets/images/cam.svg" alt="" />
+          <div className="git">
+            <Link
+                to="https://github.com/Abde-Ait-bella"
+                target="_blank"
+              >
+              <i class="fa-brands fa-github-alt"></i>
+            </Link>
           </div>
-          <div className="notification">
-            <img src="/assets/images/notif.svg" alt="" />
+          <div className="mode" onClick={toggleMode}>
+            <i class="fa-solid fa-moon"></i>
           </div>
           <div className="profile-img">
             <img src="/assets/images/profile.jpg" alt="" />

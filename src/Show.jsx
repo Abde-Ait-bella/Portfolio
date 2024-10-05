@@ -8,9 +8,11 @@ import * as AWS from "aws-sdk";
 import Swal from "sweetalert2";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
+import { UseMode } from "./Context";
 
 function Show() {
   const { id } = useParams();
+  const {mode} = UseMode();
 
   const [dataCommant, setDataCommant] = useState();
   const [curentTime, setCurentTime] = useState("00:00");
@@ -583,7 +585,7 @@ function Show() {
   return (
     <>
       <Nav />
-      <div className={`show  ${state.theater ? "" : "container"}`}>
+      <div className={`show  ${state.theater ? "" : "container"}`} theme-toggle-mode={mode}>
         <div class="video-info-containers">
           <div
             className={`video-container ${state.clicked ? "paused" : ""} ${
@@ -753,7 +755,11 @@ function Show() {
                     <p className="undername">Junior Web Developer</p>
                   </div>
                 </div>
-                <div className="subscribe">Subscribe</div>
+                  <a target="_blank" href="https://github.com/Abde-Ait-bella/Prortfolio_2">
+                    <div className="subscribe">
+                      Source
+                    </div>
+                  </a>  
                 <div className="like-dislike">
                   <div className="like-icon">
                     <img src="/assets/images/Like.svg" alt="" />
@@ -765,10 +771,12 @@ function Show() {
                     <div className="dislikes"></div>
                   </div>
                 </div>
-                <div className="share">
-                  <img src="/assets/images/share.svg" alt="" />
-                  <p>Share</p>
-                </div>
+                  <a target="_blank" className="text-dark" href="https://github.com/Abde-Ait-bella/Prortfolio_2">
+                    <div className="share">
+                        <img src="/assets/images/share.svg" alt="" />
+                        <p>View</p>
+                    </div>
+                  </a>
 
                 <div className="other-option">
                   <p>...</p>

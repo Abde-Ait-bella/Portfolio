@@ -4,6 +4,11 @@
   outline: none;
   position: relative;
   justify-content: center;
+  a{
+    text-decoration: none;
+    color: #fff;
+  
+  }
 
   .video-container::before {
     position: absolute;
@@ -320,6 +325,11 @@
         align-items: center;
         font-size: 15px;
         font-weight: 500;
+        &:hover{
+          background-color: #c7c7c7;
+          color: #7a7a7a;
+          transition: ease;
+        }
       }
       .like-dislike {
         height: 35px;
@@ -330,6 +340,7 @@
         border-radius: 50px;
         gap: 14px;
         padding: 0 17px;
+        cursor: not-allowed;
 
         .like-icon {
           img {
@@ -356,6 +367,11 @@
         background-color: rgba(150, 150, 150, 0.2);
         border-radius: 50px;
         gap: 8px;
+        &:hover{
+          background-color: #c7c7c7;
+          color: #000;
+          transition: ease;
+        }
 
         img {
           width: 25px;
@@ -375,6 +391,7 @@
         justify-content: center;
         align-items: center;
         padding-bottom: 6px;
+        cursor: not-allowed;
         p {
           margin: 0;
         }

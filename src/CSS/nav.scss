@@ -11,6 +11,11 @@
   top: 0;
   background-color: #ffffff;
   z-index: 100;
+  a {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+  }
 
   .search-alert {
     position: absolute;
@@ -277,12 +282,6 @@
     justify-content: center;
     align-items: center;
 
-    a {
-      text-decoration: none;
-      color: #000;
-      display: flex;
-    }
-
     cursor: pointer;
     &:hover {
       background-color: #dbdbdb;
@@ -300,9 +299,8 @@
   justify-content: space-between;
   // padding: 0 3px;
 
-  .cam-video {
-    padding-bottom: 1px;
-    padding: 5px;
+  .git {
+    padding: 6.5px 5px 5px 5px;
     border-radius: 50%;
     width: 39px;
     height: 39px;
@@ -315,13 +313,16 @@
       background-color: rgb(221 220 220);
     }
 
-    img {
-      width: 20px;
-      height: 14px;
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      margin-top: 1px;
     }
   }
 
-  .notification {
+  .mode {
     padding-bottom: 1px;
     padding: 5px;
     border-radius: 50%;
@@ -336,10 +337,14 @@
       background-color: rgb(221 220 220);
     }
 
-    img {
-      width: 26px;
-      height: 27px;
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      margin-top: 1px;
     }
+    
   }
 
   .profile-img {

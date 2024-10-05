@@ -1,6 +1,8 @@
 import { React, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./CSS/Projects.scss";
+import { UseMode } from "./Context";
+
 
 function Projects() {
   const data = [
@@ -63,6 +65,7 @@ function Projects() {
   ];
 
   const videosRef = useRef([null, null, null]);
+  const {mode} = UseMode();
 
   const StartVideo = (index) => {
     if (videosRef.current[index]) {
@@ -88,7 +91,7 @@ function Projects() {
   };
 
   return (
-    <div className="projects">
+    <div className="projects" theme-toggle-mode={mode}>
     <h3>My Projects</h3>
       <div className="grid-video">
         <div className="videos">

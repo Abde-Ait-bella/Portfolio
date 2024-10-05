@@ -1,9 +1,15 @@
 import React from "react";
 import "./CSS/About.scss";
+import { UseMode } from "./Context";
+
 
 function About() {
+
+  const {mode} = UseMode();
+
+
   return (
-    <div className="about">
+    <div className="about" theme-toggle-mode={mode}>
       <div className="about-me">
         <h3>Hi there!</h3>
         <p>

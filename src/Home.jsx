@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "./CSS/Home.scss";
 import { Link } from "react-router-dom";
+import { UseMode } from "./Context";
 
 function Home() {
   const data = [
@@ -64,6 +65,7 @@ function Home() {
 
   const videoRefHome = useRef();
   const videosRef = useRef([null, null, null]);
+  const {mode} = UseMode();
 
   useEffect(() => {
     if (videoRefHome.current) {
@@ -72,9 +74,10 @@ function Home() {
         console.error("Failed to autoplay video:", error);
       });
       setTimeout(() => {
-        videoRefHome.current.muted = false;
+        // videoRefHome.current.muted = false;
       }, 1000);
     }
+
   }, []);
 
   const StartVideo = (index) => {
@@ -101,7 +104,9 @@ function Home() {
   };
 
   return (
-    <div className="home">
+    <div className="home" 
+    theme-toggle-mode={mode}  
+    >
       <div className="home-present">
         <div className="video">
           <video
