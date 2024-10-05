@@ -153,9 +153,16 @@ function Nav() {
         <div className="center">
           <div className="search" style={isFocused ? { width: "100%" } : {}}>
             {isFocused ? (
-              <img
+              mode === 'light' ?
+                <img
+                  style={isFocused ? { paddingLeft: "12px" } : {}}
+                  src="/assets/images/search_dark.svg"
+                  alt=""
+                />
+                :
+                <img
                 style={isFocused ? { paddingLeft: "12px" } : {}}
-                src="/assets/images/search_dark.svg"
+                src="/assets/images/search.svg"
                 alt=""
               />
             ) : (
@@ -171,7 +178,18 @@ function Nav() {
               onChange={handleSearch}
             />
             <button>
-              <img src="/assets/images/search_dark.svg" alt="" />
+              {
+                mode === 'light' ?
+                    <img
+                      src="/assets/images/search_dark.svg"
+                      alt=""
+                    />
+                    :
+                    <img
+                    src="/assets/images/search.svg"
+                    alt=""
+                  />
+              }
             </button>
             <div
               ref={menuSearchRef}
@@ -183,7 +201,18 @@ function Nav() {
                   <Link to={`/show/${d.id}`} onClick={clickedItem}>
                     <div className="item">
                       <div className="img">
-                        <img src="/assets/images/search_dark.svg" alt="" />
+                        {
+                          mode === 'light' ?
+                              <img
+                                src="/assets/images/search_dark.svg"
+                                alt=""
+                              />
+                              :
+                              <img
+                              src="/assets/images/search.svg"
+                              alt=""
+                            />
+                        }
                       </div>
                       <div className="title">
                         <p>{d.title}</p>
@@ -194,7 +223,7 @@ function Nav() {
               </div>
             </div>
           </div>
-          <div className="mic">
+          <div className="linkdin">
             <Link
               to="https://www.linkedin.com/in/abde-ssamad-ait-bella-92481a249/"
               target="_blank"
@@ -213,7 +242,13 @@ function Nav() {
             </Link>
           </div>
           <div className="mode" onClick={toggleMode}>
-            <i class="fa-solid fa-moon"></i>
+            
+            {
+              mode === 'light' ?
+              <i class="fa-solid fa-moon"></i>
+                  :
+              <i class="fa-regular fa-moon"></i>
+            }
           </div>
           <div className="profile-img">
             <img src="/assets/images/profile.jpg" alt="" />

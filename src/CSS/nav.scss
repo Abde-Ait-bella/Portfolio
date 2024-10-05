@@ -4,16 +4,31 @@
   --height: 1px;
 }
 
+[theme-toggle-mode="light"]{
+  --bacground: rgb(255, 255, 255);
+  --color:rgb(0, 0, 0);
+  --between_color: #eee;
+  --between_2_color: #dbdbdb;
+  --reverse_color: white;
+}
+[theme-toggle-mode="dark"]{
+  --bacground: #0f0f0f;
+  --color:rgb(255, 255, 255) ;
+  --between_color: #282828;
+  --between_2_color: #3d3d3d;
+  --reverse_color:  #0f0f0f;
+}
+
 .navbar {
   display: flex;
   padding: 5.5px 27px;
   position: sticky;
   top: 0;
-  background-color: #ffffff;
+  background-color: var(--bacground);
   z-index: 100;
   a {
     text-decoration: none;
-    color: #000;
+    color: var(--color);
     display: flex;
   }
 
@@ -21,11 +36,11 @@
     position: absolute;
     left: 33px;
     z-index: 999;
-    background-color: rgba(0, 0, 0);
+    background-color: var(--color);
     padding: 10px;
     border-radius: 10px;
     top: 50px;
-    color: white;
+    color: var(--reverse_color);
     .flech {
       height: 17px;
       width: 12px;
@@ -33,7 +48,7 @@
       right: 51px;
       transform: rotate(45deg);
       top: -4px;
-      background-color: black;
+      background-color: var(--color);
     }
   }
 
@@ -71,7 +86,6 @@
         transition: ease-in-out 1s, left 1s;
         color: rgba($color: #ffffff, $alpha: 0.2);
         padding-left: 28px;
-        // padding: 0px 58px;
         text-align: center;
         opacity: 0;
         display: flex;
@@ -126,7 +140,7 @@
       display: block;
       position: relative;
       content: "";
-      background-color: var(--bacground);
+      background-color: var(--color);
       width: var(--width);
       height: var(--height);
       border-radius: 5px;
@@ -148,7 +162,7 @@
 
   .logo-href {
     text-decoration: none;
-    color: var(--bacground);
+    color: var(--color);
     margin-left: 17px;
   }
 
@@ -192,14 +206,16 @@
   gap: 15px;
 
   .search {
-    border: 1px solid #ccc;
+    background-color: var(--bacground);
+    border: 1px solid var(--between_2_color);
     border-radius: 99px;
     width: 100%;
     height: 100%;
     position: relative;
-
+    
     input {
       border: none;
+      background-color: var(--bacground);
       border-radius: 99px;
       width: 91%;
       height: 100%;
@@ -212,24 +228,24 @@
 
     button {
       border: none;
-      border-left: 1px solid #ccc;
+      border-left: 1px solid var(--between_2_color);
       border-top-right-radius: 99px;
       border-bottom-right-radius: 99px;
-      background-color: #eee;
+      background-color: var(--between_color);
       width: 64px;
       height: 100%;
       position: absolute;
       right: 0;
 
       &:hover {
-        background-color: #b8b8b8;
+        background-color: var(--between_2_color);
       }
     }
 
     .menu-search {
       display: none;
       height: 426px;
-      background-color: white;
+      background-color: var(--bacground);
       border-radius: 15px;
       margin-top: 6px;
       overflow: hidden;
@@ -258,8 +274,10 @@
           display: flex;
           gap: 20px;
           padding: 5px 25px;
+          width: 100%;
+          color: var(--color);
           &:hover {
-            background-color: rgb(218, 218, 218);
+            background-color: var(--between_color);
           }
           p {
             margin: 0;
@@ -272,8 +290,8 @@
       }
     }
   }
-  .mic {
-    background-color: #f3f3f3;
+  .linkdin {
+    background-color: var(--between_color);
     padding: 5px;
     border-radius: 50%;
     width: 43.5px;
@@ -281,10 +299,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     cursor: pointer;
     &:hover {
-      background-color: #dbdbdb;
+      background-color: var(--between_2_color);
     }
 
     i {
@@ -297,7 +314,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // padding: 0 3px;
 
   .git {
     padding: 6.5px 5px 5px 5px;
@@ -309,8 +325,9 @@
     align-items: center;
     cursor: pointer;
 
+
     &:hover {
-      background-color: rgb(221 220 220);
+      background-color: var(--between_2_color);
     }
 
     i {
@@ -319,6 +336,7 @@
       align-items: center;
       font-size: 25px;
       margin-top: 1px;
+      color: var(--color);
     }
   }
 
@@ -334,7 +352,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgb(221 220 220);
+      background-color: var(--between_2_color);
     }
 
     i {
@@ -343,13 +361,14 @@
       align-items: center;
       font-size: 24px;
       margin-top: 1px;
+      color: var(--color);
     }
     
   }
 
   .profile-img {
     padding: 0 3px;
-
+    cursor: not-allowed;
     img {
       width: 32px;
       border-radius: 50%;

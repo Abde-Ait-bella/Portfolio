@@ -583,7 +583,7 @@ function Show() {
   };
 
   return (
-    <>
+    <div style={{backgroundColor: `${mode === 'light' ? '#fff': '#0f0f0f'}`}}>
       <Nav />
       <div className={`show  ${state.theater ? "" : "container"}`} theme-toggle-mode={mode}>
         <div class="video-info-containers">
@@ -804,7 +804,7 @@ function Show() {
             {
             loading ? 
               <div className="mt-3 mb-3">
-                <SkeletonTheme>
+                <SkeletonTheme {`${ mode === 'light' ? '' : 'baseColor="#282828" highlightColor="#606060"'} `}>
                   <div className="row">
                       <div className="col-3">
                           <Skeleton height={33} />
@@ -963,7 +963,7 @@ function Show() {
           ""
         )}
       </div>
-    </>
+    </div>
   );
 }
 

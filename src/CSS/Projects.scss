@@ -1,14 +1,34 @@
+[theme-toggle-mode="light"]{
+  --bacground: rgb(255, 255, 255);
+  --color:rgb(0, 0, 0);
+  --between_color: #eee;
+  --between_2_color: #dbdbdb;
+  --between_text_color: #606060;
+  --between_text_2_color: #606060;
+  --reverse_color: white;
+}
+[theme-toggle-mode="dark"]{
+  --bacground: #0f0f0f;
+  --color:rgb(255, 255, 255) ;
+  --between_color: #282828;
+  --between_2_color: #3d3d3d;
+  --between_text_color: #b3b3b3;
+  --between_text_2_color: #d1d1d1;
+  --reverse_color:  #0f0f0f;
+}
+
 .projects {
   h3 {
     font-weight: 700;
     margin-top: 22px;
     margin-bottom: 22px;
     margin-top: 0;
+    color: var(--color);
   }
 
   .grid-video {
     a {
-      color: #0f0f0f;
+      color: var(--color);
       text-decoration: none;
     }
 
@@ -37,11 +57,11 @@
         .statistic {
           font-size: 11px;
           font-weight: 400;
-          color: #606060;
+          color: var(--between_text_2_color);
         }
         .description {
           width: 70%;
-          color: #606060;
+          color: var(--between_text_2_color);
           font-size: 12px;
         }
       }

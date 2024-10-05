@@ -1,3 +1,20 @@
+[theme-toggle-mode="light"]{
+  --bacground: rgb(255, 255, 255);
+  --color:rgb(0, 0, 0);
+  --between_color: #eee;
+  --between_2_color: #dbdbdb;
+  --between_text_color: #606060;
+  --reverse_color: white;
+}
+[theme-toggle-mode="dark"]{
+  --bacground: #0f0f0f;
+  --color:rgb(255, 255, 255) ;
+  --between_color: #282828;
+  --between_2_color: #3d3d3d;
+  --between_text_color: #b3b3b3;
+  --reverse_color:  #0f0f0f;
+}
+
 .popup-overlay {
   opacity: 0;
 }
@@ -10,7 +27,7 @@
 .popup-overlay.active {
   opacity: 1;
   transition: opacity 1s, display 1s;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   z-index: 999;
   width: 100%;
@@ -103,6 +120,7 @@
 }
 
 .app {
+  background-color: var(--bacground);
   .app-bg-img {
     margin-bottom: 13px;
 
@@ -127,7 +145,7 @@
       h3 {
         font-size: 2.2rem;
         font-weight: bold;
-        color: black;
+        color: var(--color);
         margin-bottom: 0;
         margin-top: 5px;
       }
@@ -138,21 +156,21 @@
         font-weight: 400;
         white-space: nowrap;
         text-overflow: ellipsis;
-        color: #606060;
+        color: var(--between_text_color);
         margin-bottom: 0;
       }
       span {
-        color: black;
+        color: var(--color);
         font-weight: bold;
         cursor: pointer;
       }
 
       .check-cv {
         a {
-          background-color: rgb(221 220 220);
+          background-color: var(--between_color);
           border-radius: 20px;
           padding: 8px 33px;
-          color: #000;
+          color: var(--color);
           line-height: 3.5rem;
           text-decoration: none;
           font-weight: 600;
@@ -162,7 +180,7 @@
           align-items: center;
 
           &:hover {
-            background-color: #cbcbcb;
+            background-color: rgba(143, 143, 143, 0.5);
           }
         }
       }
@@ -206,7 +224,7 @@
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #606060;
+      color: var(--between_text_color);
       font-size: 1rem;
       line-height: 2.2rem;
       font-weight: 500;
@@ -217,7 +235,7 @@
       a {
         height: 100% !important;
         &.active {
-          border-bottom: 2px solid #000;
+          border-bottom: 2px solid var(--color);
           height: 100%;
         }
       }

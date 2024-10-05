@@ -37,16 +37,18 @@
       font-size: xxx-large;
     }
     p {
-      font-family: "Poppins", sans-serif;
       background: linear-gradient(
         to bottom right,
-        rgb(24, 24, 24),
+        var(--between_text_color),
         rgb(143, 143, 143)
       );
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-size: large;
+      font-size: larger;
       font-weight: 600;
+      font-family: monospace;
+      text-align: center;
+      margin: 0;
     }
   }
   .what-i-do {
@@ -126,6 +128,7 @@
           opacity: 1;
           transition: font-size 1ms, margin-top 0.5s ease-in-out,
             transform ease-in-out;
+            color: var(--color);
         }
 
         &:hover p::after {

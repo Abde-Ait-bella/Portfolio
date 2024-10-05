@@ -1,13 +1,32 @@
+[theme-toggle-mode="light"]{
+  --bacground: rgb(255, 255, 255);
+  --color:#212529;
+  --between_color: #eee;
+  --between_2_color: #dbdbdb;
+  --between_text_color: #606060;
+  --between_text_2_color: #606060;
+  --reverse_color: white;
+}
+[theme-toggle-mode="dark"]{
+  --bacground: #0f0f0f;
+  --color:rgb(255, 255, 255) ;
+  --between_color: #282828;
+  --between_2_color: #3d3d3d;
+  --between_text_color: #b3b3b3;
+  --between_text_2_color: #d1d1d1;
+  --reverse_color:  #0f0f0f;
+}
+
 .show {
   display: flex;
   gap: 24px;
   outline: none;
   position: relative;
   justify-content: center;
+  background-color: var(--bacground);
   a{
     text-decoration: none;
-    color: #fff;
-  
+    color: var(--color);
   }
 
   .video-container::before {
@@ -261,6 +280,7 @@
         font-size: 20px;
         font-weight: 700;
         margin: 15px 0px;
+        color: var(--color);
       }
 
       .channel-profile {
@@ -283,6 +303,8 @@
           .name-undername {
             .name {
               margin-bottom: 0;
+              color: var(--color);
+
             }
             .undername {
               font-size: 14px;
@@ -290,7 +312,7 @@
               font-weight: 400;
               white-space: nowrap;
               text-overflow: ellipsis;
-              color: #606060;
+              color: var(--between_text_2_color);
               margin-bottom: 0;
             }
           }
@@ -314,20 +336,20 @@
       }
 
       .subscribe {
-        padding: 1px 10px;
+        padding: 2px 15px;
         border-radius: 50px;
         width: 108px;
         height: 35px;
         display: flex;
         justify-content: center;
-        color: #fff;
-        background-color: #0f0f0f;
+        color: var(--reverse_color);
+        background-color: var(--color);
         align-items: center;
         font-size: 15px;
         font-weight: 500;
         &:hover{
-          background-color: #c7c7c7;
-          color: #7a7a7a;
+          background-color: var(--between_text_color);
+          color: var(--reverse_color);
           transition: ease;
         }
       }
@@ -336,7 +358,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(150, 150, 150, 0.2);
+        background-color: var(--between_color);
         border-radius: 50px;
         gap: 14px;
         padding: 0 17px;
@@ -350,7 +372,7 @@
         .bordered {
           width: 1px;
           height: 75%;
-          background-color: #afaeae;
+          background-color: var(--between_text_2_color);
         }
         .dislike-icon {
           img {
@@ -364,12 +386,14 @@
         padding: 2px 20px;
         display: flex;
         align-items: center;
-        background-color: rgba(150, 150, 150, 0.2);
+        background-color: var(--between_color);
         border-radius: 50px;
         gap: 8px;
+        color: var(--between_text_2_color);
+
         &:hover{
-          background-color: #c7c7c7;
-          color: #000;
+          background-color: var(--between_text_color);
+          color: var(--color);
           transition: ease;
         }
 
@@ -399,11 +423,10 @@
     }
 
     .description {
-      // width: 100%;
-      background-color: rgba(150, 150, 150, 0.2);
-      padding: 15px;
+      background-color: var(--between_color);
+      padding: 15px 15px 89px 15px;
       border-radius: 10px;
-      color: #606060;
+      color: var(--between_text_2_color);
       font-size: 15px;
       margin-top: 20px;
       overflow: hidden;
@@ -414,7 +437,7 @@
       }
       span {
         position: absolute;
-        bottom: 1px;
+        bottom: 7px;
         right: 15px;
         font-weight: 600;
         cursor: pointer;
@@ -431,7 +454,7 @@
       .comments {
         h5 {
           font-weight: 600;
-          color: #000;
+          color: var(--color);
         }
       }
 

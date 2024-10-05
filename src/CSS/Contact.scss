@@ -1,3 +1,22 @@
+[theme-toggle-mode="light"]{
+  --bacground: rgb(255, 255, 255);
+  --color:rgb(0, 0, 0);
+  --between_color: #eee;
+  --between_2_color: #dbdbdb;
+  --between_text_color: #606060;
+  --between_text_2_color: #606060;
+  --reverse_color: white;
+}
+[theme-toggle-mode="dark"]{
+  --bacground: #0f0f0f;
+  --color:rgb(255, 255, 255) ;
+  --between_color: #282828;
+  --between_2_color: #3d3d3d;
+  --between_text_color: #b3b3b3;
+  --between_text_2_color: #d1d1d1;
+  --reverse_color:  #0f0f0f;
+}
+
 .contacts {
   display: flex;
   justify-content: center;
@@ -17,13 +36,15 @@
         padding: 10px 35px;
         width: 100%;
         border: none;
-        border-bottom: solid 4px rgb(117 121 126);
+        border-bottom: solid 4px var(--between_text_color);
         outline: none;
         height: 45px;
-        color: rgb(63, 63, 65);
+        background-color: var(--bacground);
+        caret-color: var(--between_text_2_color);
+        color: var(--between_text_color);
 
         &:focus {
-          border-bottom: solid 4px black;
+          border-bottom: solid 4px var(--color);
           transition: border ease-in-out 5ms;
         }
       }
@@ -33,12 +54,12 @@
         padding: 10px 35px;
         outline: none;
         border: none;
-        border-bottom: solid 4px rgb(117 121 126);
-        color: rgb(63, 63, 65);
+        border-bottom: solid 4px var(--between_text_color);
+        color: var(--between_text_color);
+        background-color: var(--bacground);
 
         &:focus {
-          // border-bottom: solid 4px rgb(127 170 221);
-          border-bottom: solid 4px black;
+          border-bottom: solid 4px var(--color);
           transition: border ease-in-out 5ms;
         }
       }
@@ -78,7 +99,7 @@
             position: absolute;
             display: flex;
             align-items: center;
-            color: rgb(117 121 126);
+            color: var(--between_text_color);
             top: 10px;
             left: 12px;
             transition: top 0.3s ease-in-out, font-size 0.3s ease-in-out;
@@ -92,15 +113,14 @@
 
           &:focus-within i,
           &:focus-within label {
-            // color: rgb(127 170 221);
-            color: black;
-            top: -9px;
+            color: var(--color);
+            top: -10px;
             font-size: 15px;
             transition: top 0.3s, font-size 0.3s;
           }
           &:focus-within i {
-            top: -6px;
-            color: black;
+            top: -7px;
+            color: var(--color);
           }
         }
 
