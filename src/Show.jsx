@@ -90,8 +90,8 @@ function Show() {
     AWS.config.update({
       region: "us-east-1", // Replace with your AWS region
       // endpoint: "dynamodb.us-east-1.amazonaws.com",
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
-      secretAccessKey: process.env.AWS_ACCESS_KEY_ID,
+      accessKeyId:'AKIAQFLZDK573ACZI75D', 
+      secretAccessKey:'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',
     });
 
     const dbClient = new AWS.DynamoDB.DocumentClient();
@@ -762,18 +762,30 @@ function Show() {
                   </a>  
                 <div className="like-dislike">
                   <div className="like-icon">
-                    <img src="/assets/images/Like.svg" alt="" />
+                      {mode === 'dark' ?
+                        <img src="/assets/images/Like-white.svg" alt="" />
+                        :
+                        <img src="/assets/images/Like.svg" alt="" />
+                      }
                     <div className="dislikes"></div>
                   </div>
                   <div className="bordered"></div>
                   <div className="dislike-icon">
-                    <img src="/assets/images/Like.svg" alt="" />
+                      {mode === 'dark' ?
+                        <img src="/assets/images/Like-white.svg" alt="" />
+                        :
+                        <img src="/assets/images/Like.svg" alt="" />
+                      }
                     <div className="dislikes"></div>
                   </div>
                 </div>
                   <a target="_blank" className="text-dark" href="https://github.com/Abde-Ait-bella/Prortfolio_2">
                     <div className="share">
-                        <img src="/assets/images/share.svg" alt="" />
+                        {mode === 'dark' ?
+                          <img src="/assets/images/share-white.svg" alt="" />
+                          :
+                          <img src="/assets/images/share.svg" alt="" />
+                        }
                         <p>View</p>
                     </div>
                   </a>
@@ -802,9 +814,9 @@ function Show() {
               </span>
             </div>
             {
-            loading ? 
+            !loading ? 
               <div className="mt-3 mb-3">
-                <SkeletonTheme {`${ mode === 'light' ? '' : 'baseColor="#282828" highlightColor="#606060"'} `}>
+                <SkeletonTheme baseColor={mode === 'dark' ? "#282828" : undefined}  highlightColor={mode === 'dark' ? "#606060" : undefined} >
                   <div className="row">
                       <div className="col-3">
                           <Skeleton height={33} />
@@ -875,7 +887,7 @@ function Show() {
                 loading ? 
                 <>
                   <div className="mt-1 mb-2">
-                    <SkeletonTheme>
+                    <SkeletonTheme baseColor={mode === 'dark' ? "#282828" : undefined}  highlightColor={mode === 'dark' ? "#606060" : undefined} >
                       <div className="row">
                           <div className="col-1">
                               <Skeleton height={40} circle width={40}/>
@@ -887,7 +899,7 @@ function Show() {
                     </SkeletonTheme>
                   </div> 
                   <div className="mt-1 mb-2">
-                    <SkeletonTheme>
+                    <SkeletonTheme baseColor={mode === 'dark' ? "#282828" : undefined}  highlightColor={mode === 'dark' ? "#606060" : undefined}>
                       <div className="row">
                           <div className="col-1">
                               <Skeleton height={40} circle width={40}/>
@@ -899,7 +911,7 @@ function Show() {
                     </SkeletonTheme>
                   </div> 
                   <div className="mt-1 mb-2">
-                    <SkeletonTheme>
+                    <SkeletonTheme baseColor={mode === 'dark' ? "#282828" : undefined}  highlightColor={mode === 'dark' ? "#606060" : undefined}>
                       <div className="row">
                           <div className="col-1">
                               <Skeleton height={40} circle width={40}/>
@@ -923,11 +935,19 @@ function Show() {
                       <p className="comment">{d.comment}</p>
                       <div className="like-dislike">
                         <div className="like-icon">
-                          <img src="/assets/images/Like.svg" alt="" />
-                          <div className="likes"></div>
+                          {mode === 'dark' ?
+                            <img src="/assets/images/Like-white.svg" alt="" />
+                            :
+                            <img src="/assets/images/Like.svg" alt="" />
+                          }
+                        <div className="likes"></div>
                         </div>
                         <div className="dislike-icon">
-                          <img src="/assets/images/Like.svg" alt="" />
+                          {mode === 'dark' ?
+                            <img src="/assets/images/Like-white.svg" alt="" />
+                            :
+                            <img src="/assets/images/Like.svg" alt="" />
+                          }
                           <div className="dislikes"></div>
                         </div>
                       </div>
