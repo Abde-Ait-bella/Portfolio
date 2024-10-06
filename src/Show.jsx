@@ -90,8 +90,8 @@ function Show() {
     AWS.config.update({
       region: "us-east-1", // Replace with your AWS region
       // endpoint: "dynamodb.us-east-1.amazonaws.com",
-      accessKeyId:'AKIAQFLZDK573ACZI75D', 
-      secretAccessKey:'N4LhVXEqCQrsrHuXyrgQZEp9eUYibDTyKL4ph5EP',
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
+      secretAccessKey: process.env.AWS_ACCESS_KEY_ID,
     });
 
     const dbClient = new AWS.DynamoDB.DocumentClient();
@@ -884,7 +884,7 @@ function Show() {
                 ""
               )}
                {
-                loading ? 
+                !loading ? 
                 <>
                   <div className="mt-1 mb-2">
                     <SkeletonTheme baseColor={mode === 'dark' ? "#282828" : undefined}  highlightColor={mode === 'dark' ? "#606060" : undefined} >
