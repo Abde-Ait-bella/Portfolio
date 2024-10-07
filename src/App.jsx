@@ -67,7 +67,7 @@ function App() {
       setTypewriter(true);
       setTimeout(() => {
         setPresentation(false);
-      }, 12000);
+      }, 10000);
     }, 2000);
   }, [controls]);
 

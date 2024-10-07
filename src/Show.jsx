@@ -26,65 +26,8 @@ function Show() {
   var isScrubbing = false;
   var wasPaused = false;
 
-  const data = [
-    {
-      id: 0,
-      src: "./assets/videos/video.mp4",
-      title:
-        "Football Referees' Administrative Match Questions Management Application .",
-      info: "9,538 views 2 years ago",
-      description:
-        "This application is designed to help football referees in managing match-related administrative matters efficiently. It provides a central platform where referees can record various administrative aspects of the match report and track match statistics, and even enable them to save all match reports and even print them in PDF format. \n Key Features \n Match Information Recording: Allows referees to input essential details such as date, time, stade, and competing teams etc ....\n Data Management: Facilitates adding, modifying, and removing (assistant referees, clubs, stades, cities ...).\n Match statistics: The number of matches in months and years, the number of warnings, charts.\n Reports: Generates detailed report and information about the matches and events that took place during the matches will be issued in the form of an official report that will be sent to the regional league....\n Print the report: The site provides the feature of printing the report and downloading it in a format PDF.",
-    },
-    {
-      id: 1,
-      src: "/assets/videos/video1.mp4",
-      title: "Lorem ipsum dolor sit amet.",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 2,
-      src: "/assets/videos/video2.mp4",
-      title: "Zizou binse (Official Clip).",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 3,
-      src: "/assets/videos/First Potty Accident.mp4",
-      title: "First Potty Accident",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 4,
-      src: "/assets/videos/video.m4v",
-      title: "Vlog Trip",
-      info: "9,538 views 3 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 5,
-      src: "/assets/videos/First Time I Didn't Want to Tell the Truth.mp4",
-      title: "First Time I Didn't Want to Tell the Truth",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 6,
-      src: "/assets/videos/Tchubi.mp4",
-      title: "Tchubi.mp4",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-  ];
+  const {data} = UseMode();
+
 
   useEffect(() => {
     AWS.config.update({
@@ -649,8 +592,8 @@ function Show() {
                   )}
                 </div>
 
-                <button>
-                  <img src="./assets/images/ico-next.svg" />
+                <button className="next-play-icon">
+                  <img src="/assets/images/ico-next.svg" />
                 </button>
 
                 <div class="volume-container">
@@ -755,11 +698,11 @@ function Show() {
                     <p className="undername">Junior Web Developer</p>
                   </div>
                 </div>
-                  <a target="_blank" href="https://github.com/Abde-Ait-bella/Prortfolio_2">
+                  <Link target="_blank" to={video.url_git}>
                     <div className="subscribe">
                       Source
                     </div>
-                  </a>  
+                  </Link>  
                 <div className="like-dislike">
                   <div className="like-icon">
                       {mode === 'dark' ?
@@ -779,7 +722,7 @@ function Show() {
                     <div className="dislikes"></div>
                   </div>
                 </div>
-                  <a target="_blank" className="text-dark" href="https://github.com/Abde-Ait-bella/Prortfolio_2">
+                  <Link target="_blank" className="text-dark" to={video.url}>
                     <div className="share">
                         {mode === 'dark' ?
                           <img src="/assets/images/share-white.svg" alt="" />
@@ -788,7 +731,7 @@ function Show() {
                         }
                         <p>View</p>
                     </div>
-                  </a>
+                  </Link>
 
                 <div className="other-option">
                   <p>...</p>
@@ -799,9 +742,9 @@ function Show() {
               className="description"
               style={{ maxHeight: `${state.toggleMaxHeight ? "" : "100px"} ` }}
             >
-              <p className="release-date">172,816 views May 7, 2022</p>
+              <p className="release-date">Completed in {video?.duration}. {video?.date}</p>
               <p>
-                JavaScript Simplified Course: https://javascriptsimplified.com
+                {video.title_description}
               </p>
               <p
                 className="textdesc"
@@ -812,6 +755,9 @@ function Show() {
               <span onClick={toggleDescriptin}>
                 {state.toggleMaxHeight ? "Show less" : "...more"}
               </span>
+              <Link target="_blank" to={video.url}>
+                <p>🔗 Link to the project: {video.url} 👈</p> 
+              </Link>
             </div>
             {
             !loading ? 
@@ -963,7 +909,7 @@ function Show() {
               <Link to={`/show/${d.id}`}>
                 <div className="video">
                   <video
-                    src={d.src}
+                    src={d?.src}
                     ref={(el) => (videosRef.current[index] = el)}
                     width="168"
                     height="94"
@@ -973,7 +919,7 @@ function Show() {
                   />
                   <div className="video-info">
                     <p className="title">{d.title}</p>
-                    <p className="statistic">{d.info}</p>
+                    <p className="statistic">Duration {d.duration} {d.date}</p>
                   </div>
                 </div>
               </Link>

@@ -270,6 +270,15 @@
             padding: 5px;
             gap: 5px;
           }
+
+          .next-play-icon{
+            img{
+              width: 17px;
+              height: 21px;
+              outline: none;
+          }
+        }
+
         }
       }
     }
@@ -420,26 +429,30 @@
         cursor: not-allowed;
         p {
           margin: 0;
+          color: var(--color);
         }
       }
     }
 
     .description {
       background-color: var(--between_color);
-      padding: 15px 15px 89px 15px;
+      padding: 15px;
       border-radius: 10px;
       color: var(--between_text_2_color);
       font-size: 15px;
       margin-top: 20px;
       overflow: hidden;
       position: relative;
+      .textdesc {
+        white-space: break-spaces;
+      }
       .release-date {
         font-weight: 500;
         margin: 0;
       }
       span {
         position: absolute;
-        bottom: 7px;
+        bottom: 2px;
         right: 15px;
         font-weight: 600;
         cursor: pointer;

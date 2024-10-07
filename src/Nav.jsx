@@ -4,64 +4,7 @@ import { Link } from "react-router-dom";
 import { UseMode } from "./Context";
 
 function Nav() {
-  const data = [
-    {
-      id: 0,
-      src: "/assets/videos/video.mp4",
-      title: "Lorem ipsum dolor sit amet.",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 1,
-      src: "./assets/videos/video1.mp4",
-      title: "Lorem ipsum dolor sit amet.",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 2,
-      src: "/assets/videos/video2.mp4",
-      title: "Zizou binse (Official Clip).",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 3,
-      src: "/assets/videos/First Potty Accident.mp4",
-      title: "Arbitre",
-      info: "9,538 views 2 years ago",
-      description:
-        "JavaScript ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 4,
-      src: "/assets/videos/video.m4v",
-      title: "Vlog Trip",
-      info: "9,538 views 3 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 5,
-      src: "/assets/videos/First Time I Didn't Want to Tell the Truth.mp4",
-      title: "First Time I Didn't Want to Tell the Truth",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-    {
-      id: 6,
-      src: "/assets/videos/Tchubi.mp4",
-      title: "Tchubi.mp4",
-      info: "9,538 views 2 years ago",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione expedita dolore temporibus.",
-    },
-  ];
+  const {data} = UseMode();
 
   const [isFocused, setIsFocused] = useState();
   const [dataFiltred, setDataFiltred] = useState(data);
@@ -77,7 +20,6 @@ function Nav() {
   //   setClickItem(false);
   // }, [id]);
 
-  console.log('mode', mode);
 
   const handleFocus = () => {
     setIsFocused(true);

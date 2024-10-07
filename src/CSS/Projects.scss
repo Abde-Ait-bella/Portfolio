@@ -39,8 +39,8 @@
     }
     .videos {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      gap: 39px;
 
       video {
         object-fit: cover;
