@@ -15,10 +15,8 @@ root.render(
   <ModeProvider>
     <BrowserRouter>
       <Routes>
-        {/* <div style={{backgroundColor: `${mode === 'light' ? '#fff': '#0f0f0f'}`}}> */}
           <Route path="*" element={<App />} />
           <Route path="/show/:id" element={<Show />} />
-        {/* </div> */}
       </Routes>
     </BrowserRouter>
   </ModeProvider>

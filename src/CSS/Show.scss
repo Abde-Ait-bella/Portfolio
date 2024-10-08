@@ -19,6 +19,14 @@
   --hover_color: #606060;
 }
 
+.show-default {
+  .scroll {
+    position: fixed;
+    height: 9px;
+    background-color: var(--between_text_2_color);
+    z-index: 999;
+    width: 100%;
+  }
 .show {
   display: flex;
   gap: 24px;
@@ -26,6 +34,7 @@
   position: relative;
   justify-content: center;
   background-color: var(--bacground);
+
   a{
     text-decoration: none;
     color: var(--color);
@@ -700,6 +709,7 @@
         }
       }
     }
+  }
   }
 }
 

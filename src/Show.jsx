@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 import { UseMode } from "./Context";
+import { motion, useScroll } from "framer-motion";
 
 function Show() {
   const { id } = useParams();
@@ -27,6 +28,7 @@ function Show() {
   var wasPaused = false;
 
   const {data} = UseMode();
+  const { scrollYProgress } = useScroll();
 
 
   useEffect(() => {
@@ -526,8 +528,9 @@ function Show() {
   };
 
   return (
-    <div style={{backgroundColor: `${mode === 'light' ? '#fff': '#0f0f0f'}`}}>
-      <Nav />
+    <div className="show-default" style={{backgroundColor: `${mode === 'light' ? '#fff': '#0f0f0f'}`}} theme-toggle-mode={mode}>
+        <motion.div className="scroll" style={{ scaleX: scrollYProgress, transformOrigin: 'left'  }} />
+        <Nav />
       <div className={`show  ${state.theater ? "" : "container"}`} theme-toggle-mode={mode}>
         <div class="video-info-containers">
           <div

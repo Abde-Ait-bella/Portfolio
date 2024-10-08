@@ -6,7 +6,7 @@ import Projects from "./Projects";
 import { useEffect, useState } from "react";
 import About from "./About";
 import Contact from "./Contact";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, useScroll } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { UseMode } from "./Context";
 
@@ -16,6 +16,7 @@ function App() {
   const [typewriter, setTypewriter] = useState(false);
   const [presentation, setPresentation] = useState(true);
   const {mode} = UseMode();
+  const { scrollYProgress } = useScroll();
 
   const togglepPopup = () => {
     setActivePopup(!activePopup);
@@ -72,11 +73,13 @@ function App() {
   }, [controls]);
 
   return (
-    <>
-      <div 
-          className={`popup-overlay ${activePopup ? "active" : ""}`}
-          onClick={togglepPopup}
-           ></div>
+    <div className="app"  theme-toggle-mode={mode}>
+          <motion.div className="scroll" style={{ scaleX: scrollYProgress, transformOrigin: 'left'  }} />
+
+          <div 
+        className={`popup-overlay ${activePopup ? "active" : ""}`}
+        onClick={togglepPopup}
+          ></div>
           <div className={`popup ${activePopup ? "active" : ""}`}>
             <div className="card">
               <div className="title">
@@ -173,69 +176,68 @@ function App() {
           ) : (
             ""
           )}
+            <Nav />
+          
+            <div>
+              <div className="container">
+                <div className="app-bg-img">
+                  <video
+                    src="/assets/videos/background-video.m4v"
+                    type="video/mp4"
+                    autoPlay
+                    loop
+                    muted
+                  ></video>
+                </div>
+                <div className="app-profile">
+                  <div className="app-profile-info">
+                    <div className="profile-img">
+                      <img src="./assets/images/profile.jpg" alt="" />
+                    </div>
+                    <div className="profile-info">
+                      <h3 dir="rtl">عبد الصمد أيت بلا | AbdeSsamad Ait-bella</h3>
+                      <label>@full-stack • 35 years old • 3 projects</label>
+                      <br />
+                      <label>
+                        More about me <span onClick={togglepPopup}>...more</span>
+                      </label>
 
-          <Nav />
-         
-          <div className="app"  theme-toggle-mode={mode}>
-            <div className="container">
-              <div className="app-bg-img">
-                <video
-                  src="/assets/videos/background-video.m4v"
-                  type="video/mp4"
-                  autoPlay
-                  loop
-                  muted
-                ></video>
-              </div>
-              <div className="app-profile">
-                <div className="app-profile-info">
-                  <div className="profile-img">
-                    <img src="./assets/images/profile.jpg" alt="" />
-                  </div>
-                  <div className="profile-info">
-                    <h3 dir="rtl">عبد الصمد أيت بلا | AbdeSsamad Ait-bella</h3>
-                    <label>@full-stack • 35 years old • 3 projects</label>
-                    <br />
-                    <label>
-                      More about me <span onClick={togglepPopup}>...more</span>
-                    </label>
-
-                    <div className="check-cv">
-                      <a href="../assets/files/cv.pdf" target="_blank">
-                        Check my CV
-                        <i class="fa-solid fa-eye"></i>
-                      </a>
+                      <div className="check-cv">
+                        <a href="../assets/files/cv.pdf" target="_blank">
+                          Check my CV
+                          <i class="fa-solid fa-eye"></i>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div className="app-menu container">
+                <div>
+                  <NavLink to={"/"}>Home</NavLink>
+                </div>
+                <div>
+                  <NavLink to={"/projects"}>Projects</NavLink>
+                </div>
+                <div>
+                  <NavLink to={"/about-me"}>About me</NavLink>
+                </div>
+                <div>
+                  <NavLink to={"/contact"}>Contact me</NavLink>
+                </div>
+              </div>
+              <hr />
+              <div className="container show-menu">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/about-me" element={<About />} />
+                  <Route path="/project" element={<Home />} />
+                  <Route path="/contact" element={<Contact />} />
+                </Routes>
+              </div>
             </div>
-            <div className="app-menu container">
-              <div>
-                <NavLink to={"/"}>Home</NavLink>
-              </div>
-              <div>
-                <NavLink to={"/projects"}>Projects</NavLink>
-              </div>
-              <div>
-                <NavLink to={"/about-me"}>About me</NavLink>
-              </div>
-              <div>
-                <NavLink to={"/contact"}>Contact me</NavLink>
-              </div>
-            </div>
-            <hr />
-            <div className="container show-menu">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/about-me" element={<About />} />
-                <Route path="/project" element={<Home />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </div>
-          </div>
-    </>
+    </div>
   );
 }
 
