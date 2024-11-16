@@ -6,11 +6,11 @@ This project is a portfolio website designed to showcase my front-end developmen
 - **Search Functionality:** Easily search for projects by technologies used (e.g., "Laravel", "JavaScript"), and the site will display the relevant projects built with those technologies.
 
 ## Technologies Used ⚒️
-- **HTML5**: For structuring the content
-- **CSS3 (SASS)**: For styling and layout with enhanced control
-- **JavaScript**: For interaction and dynamic content rendering
-- **React.js**: To build reusable components and manage state
-- **GSAP**: For animations and smooth transitions
+- **HTML5**
+- **CSS3 (SASS)**
+- **JavaScript**
+- **React.js**
+- **GSAP**
 
 ## Installation 🛠️
 To run this project locally, follow these steps:
